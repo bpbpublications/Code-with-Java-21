@@ -1,0 +1,35 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.codewithjava21</groupId>
+  <artifactId>chapterexercises</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  
+  <!-- This pom.xml file is intended to run at the root directory for
+       chapters 2-7 and 9 of Code with Java 21 -->
+  
+  <properties>
+      <java.version>21</java.version>
+      <maven.compiler.source>21</maven.compiler.source>
+      <maven.compiler.target>21</maven.compiler.target>
+      <junit.jupiter.version>5.9.3</junit.jupiter.version>
+  </properties>
+  
+  <dependencies>
+	<dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>${junit.jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+	<dependency>
+	    <groupId>org.postgresql</groupId>
+	    <artifactId>postgresql</artifactId>
+	    <version>42.6.0</version>
+	</dependency>
+	<dependency>
+	    <groupId>com.datastax.oss</groupId>
+	    <artifactId>java-driver-core</artifactId>
+	    <version>4.17.0</version>
+	</dependency>
+  </dependencies>
+</project>

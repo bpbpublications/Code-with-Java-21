@@ -1,0 +1,50 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.codewithjava21</groupId>
+  <artifactId>movieapp</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>moviedataloader</name>
+  <description>Loads movie_metadata.csv from Kaggle</description>
+  
+    <properties>
+            <java.version>21</java.version>
+            <maven.compiler.source>21</maven.compiler.source>
+	    <maven.compiler.target>21</maven.compiler.target>
+	    <cassandra.driver.oss.version>4.17.0</cassandra.driver.oss.version>
+    </properties>
+    
+    <dependencies>
+        <dependency>
+            <groupId>com.datastax.oss</groupId>
+            <artifactId>java-driver-core</artifactId>
+            <version>${cassandra.driver.oss.version}</version>
+        </dependency>
+    </dependencies>
+    
+  <build>
+    <plugins>
+      <plugin>
+          <artifactId>maven-assembly-plugin</artifactId>
+          <executions>
+            <execution>
+              <phase>package</phase>
+              <goals>
+                <goal>single</goal>
+              </goals>
+            </execution>
+          </executions>
+          <configuration>
+            <archive>
+              <manifest>
+                <addClasspath>true</addClasspath>
+                <mainClass>com.codewithjava21.movieapp.batchloader.MovieDataLoader</mainClass>
+              </manifest>
+            </archive>
+            <descriptorRefs>
+               <descriptorRef>jar-with-dependencies</descriptorRef>
+            </descriptorRefs>
+          </configuration>
+      </plugin> 
+    </plugins>
+  </build>
+</project>

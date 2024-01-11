@@ -1,0 +1,37 @@
+server:
+  port: 8080
+  error:
+    include-stacktrace: always
+
+spring:
+  application:
+    name: MovieApp
+  profiles:
+    active: default
+  data:
+    cassandra:
+      schema-action: NONE
+
+astra:
+  api:
+    application-token: ${ASTRA_DB_APP_TOKEN}
+    database-id: ${ASTRA_DB_ID}
+    database-region: ${ASTRA_DB_REGION}
+    cross-region-failback: false
+  cql:
+    enabled: true
+    download-scb:
+      enabled: true
+    driver-config:
+      basic:
+        session-keyspace: ${ASTRA_DB_KEYSPACE}
+        request:
+          timeout: 8s
+          consistency: LOCAL_QUORUM
+          page-size: 5000
+      advanced:
+        connection:
+          init-query-timeout: 10s
+          set-keyspace-timeout: 10s
+        control-connection:
+          timeout: 10s
